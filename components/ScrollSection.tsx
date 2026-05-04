@@ -147,7 +147,8 @@ export default function ScrollSection({ onProgress, onLoaded }: ScrollSectionPro
     const pct = (loadedCountRef.current / TOTAL_FRAMES) * 100
     onProgress(pct)
 
-    if (loadedCountRef.current === TOTAL_FRAMES && !siteStartedRef.current) {
+    // Unlock site after first frame — don't block on all 121
+    if (loadedCountRef.current === 1 && !siteStartedRef.current) {
       siteStartedRef.current = true
       setTimeout(() => {
         onLoaded()
@@ -164,7 +165,7 @@ export default function ScrollSection({ onProgress, onLoaded }: ScrollSectionPro
     for (let i = 0; i < TOTAL_FRAMES; i++) {
       const img = new Image()
       const num = String(i + 1).padStart(4, '0')
-      img.src = `/frames/frame_${num}.jpg`
+      img.src = `/frames-webp/frame_${num}.webp`
 
       const idx = i
       img.onload = () => {

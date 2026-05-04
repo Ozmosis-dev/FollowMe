@@ -1,15 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import SmoothScroll from '@/components/SmoothScroll'
-import CustomCursor from '@/components/CustomCursor'
-import ApplyModal from '@/components/ApplyModal'
-import Loader from '@/components/Loader'
-import ProgressBar from '@/components/ProgressBar'
-import Starscape from '@/components/Starscape'
+import dynamic from 'next/dynamic'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import ScrollSection from '@/components/ScrollSection'
 import StatsBar from '@/components/StatsBar'
 import About from '@/components/About'
 import Services from '@/components/Services'
@@ -17,8 +11,16 @@ import Divisions from '@/components/Divisions'
 import Results from '@/components/Results'
 import JasonSection from '@/components/JasonSection'
 import ApplyCTA from '@/components/ApplyCTA'
-import Testimonials from '@/components/Testimonials'
 import Footer from '@/components/Footer'
+
+const SmoothScroll = dynamic(() => import('@/components/SmoothScroll'), { ssr: false })
+const CustomCursor = dynamic(() => import('@/components/CustomCursor'), { ssr: false })
+const ApplyModal = dynamic(() => import('@/components/ApplyModal'), { ssr: false })
+const Loader = dynamic(() => import('@/components/Loader'), { ssr: false })
+const ProgressBar = dynamic(() => import('@/components/ProgressBar'), { ssr: false })
+const Starscape = dynamic(() => import('@/components/Starscape'), { ssr: false })
+const ScrollSection = dynamic(() => import('@/components/ScrollSection'), { ssr: false })
+const Testimonials = dynamic(() => import('@/components/Testimonials'), { ssr: false })
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false)
