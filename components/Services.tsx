@@ -162,8 +162,8 @@ export default function Services() {
         {/* Header */}
         <span className="eyebrow">What We Do</span>
         <h2 className="section-title reveal">
-          Strategic Firepower<br />
-          <span className="gold-gradient-text">Across Every Function</span>
+          Strategic firepower<br />
+          <span className="gold-gradient-text">across every function.</span>
         </h2>
         <p className="section-sub reveal reveal-delay-1">
           We don&rsquo;t specialize in one thing. We dominate across every operational domain that

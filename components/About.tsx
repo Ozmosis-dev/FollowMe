@@ -93,8 +93,8 @@ export default function About() {
           <div>
             <span className="eyebrow">Who We Are</span>
             <h2 className="section-title reveal">
-              Most Consultants Give You Advice.<br />
-              <span className="gold-gradient-text">We Give You Infrastructure.</span>
+              Most consultants give you advice.<br />
+              <span className="gold-gradient-text">We give you infrastructure.</span>
             </h2>
             <div
               className="about-highlight reveal reveal-delay-1"

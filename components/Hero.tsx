@@ -134,8 +134,8 @@ export default function Hero({ onApplyClick }: HeroProps) {
         Elite Business Strategist &middot; Industry Disruptor &middot; 30+ Years
       </p>
       <h1 className="hero-headline" ref={headlineRef}>
-        We Don&rsquo;t Consult.<br />
-        We <span className="gold-text">Transform Industries.</span>
+        We don&rsquo;t consult.<br />
+        We <span className="gold-text">transform</span> industries.
       </h1>
       <p className="hero-sub" ref={subRef}>
         FollowMe Global Business Solutions is a multi-divisional strategic consultancy that has

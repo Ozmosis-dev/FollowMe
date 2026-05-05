@@ -33,8 +33,8 @@ export default function ApplyCTA({ onApplyClick }: ApplyCTAProps) {
       <div className="apply-inner">
         <span className="eyebrow">Work With Us</span>
         <h2 className="section-title reveal">
-          We Don&rsquo;t Work<br />
-          <span className="gold-gradient-text">With Everyone.</span>
+          We don&rsquo;t work<br />
+          <span className="gold-gradient-text">with everyone.</span>
         </h2>
         <p className="apply-body reveal reveal-delay-1">
           FollowMe partners with a select number of companies each year. If your business operates

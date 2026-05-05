@@ -46,7 +46,7 @@ export default function Results() {
           <span className="eyebrow">Proven Results</span>
           <h2 className="section-title reveal">
             Trusted by<br />
-            <span className="gold-gradient-text">Industry Leaders</span>
+            <span className="gold-gradient-text">industry leaders.</span>
           </h2>
           <p className="section-sub reveal reveal-delay-1">
             From Fortune 500 partnerships to bootstrapped companies scaling past $30M, our clients
