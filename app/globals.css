@@ -64,7 +64,7 @@
   --font-display: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-body: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mark: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-accent: var(--font-instrument-serif), 'Instrument Serif', Georgia, serif;
+  --font-accent: var(--font-instrument-serif), 'Instrument Serif', Georgia, 'Times New Roman', serif;
 
   /* shadcn compat */
   --background: #060606;
