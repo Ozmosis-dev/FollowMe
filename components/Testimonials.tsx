@@ -114,7 +114,7 @@ export default function Testimonials() {
           ref={titleRef}
           style={{ marginBottom: '40px' }}
         >
-          What Our Clients <span className="gold-gradient-text">Are Saying</span>
+          What our clients <span className="gold-gradient-text">are saying.</span>
         </h2>
       </div>
       <div

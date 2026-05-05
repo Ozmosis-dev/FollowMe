@@ -64,8 +64,8 @@ export default function Divisions() {
       <div className="section-inner">
         <span className="eyebrow">Our Divisions</span>
         <h2 className="section-title reveal">
-          One Brand.<br />
-          <span className="gold-gradient-text">Multiple Engines.</span>
+          One brand.<br />
+          <span className="gold-gradient-text">Multiple engines.</span>
         </h2>
         <p className="section-sub reveal reveal-delay-1">
           FollowMe operates across multiple divisions &mdash; each one purpose-built to serve a
