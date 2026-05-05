@@ -7,9 +7,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-sans: var(--font-jakarta);
+  --font-mono: var(--font-jakarta);
+  --font-heading: var(--font-jakarta);
+  --font-serif: var(--font-instrument-serif);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -60,6 +61,11 @@
   --radius: 20px;
   --radius-sm: 12px;
 
+  --font-display: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mark: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-accent: var(--font-instrument-serif), 'Instrument Serif', Georgia, serif;
+
   /* shadcn compat */
   --background: #060606;
   --foreground: #F5F0E8;
@@ -101,10 +107,21 @@ html { scroll-behavior: auto; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Archivo', sans-serif;
-  font-weight: 400;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-feature-settings: "ss01", "cv11";
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Reusable accent — Instrument Serif italic, gold gradient */
+.serif-italic {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.005em;
 }
 
 ::selection { background: var(--gold); color: #000; }
@@ -154,9 +171,10 @@ body {
 }
 .loader-logo img { width: 56px; height: 56px; object-fit: contain; }
 .loader-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 11px;
-  letter-spacing: 0.25em;
+  font-weight: 500;
+  letter-spacing: 0.28em;
   color: var(--text-muted);
   text-transform: uppercase;
 }
@@ -249,20 +267,21 @@ body {
   white-space: nowrap;
 }
 .nav-name {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   color: var(--text);
   text-transform: uppercase;
   line-height: 1;
 }
 .nav-sub {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 9px;
-  letter-spacing: 0.16em;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   color: var(--gold);
-  opacity: 0.6;
+  opacity: 0.65;
   text-transform: uppercase;
   line-height: 1;
   /* Hide in scrolled pill to save space */
@@ -282,7 +301,7 @@ body {
   flex-shrink: 0;
 }
 .nav-links a {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: 13px;
   font-weight: 500;
   color: var(--text-dim);
@@ -305,7 +324,7 @@ body {
 .nav-links a:hover { color: var(--gold); }
 .nav-links a:hover::after { transform: scaleX(1); }
 .nav-cta {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -397,25 +416,30 @@ body {
   pointer-events: none;
 }
 .hero-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 11px;
-  letter-spacing: 0.3em;
+  font-weight: 500;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 28px;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 .hero-headline {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(42px, 6vw, 84px);
-  font-weight: 700;
-  line-height: 1.05;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5.8vw, 80px);
+  font-weight: 600;
+  line-height: 1.04;
   letter-spacing: -0.025em;
   color: var(--text);
   margin-bottom: 28px;
-  max-width: 900px;
+  max-width: 920px;
 }
 .hero-headline .gold-text {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.005em;
   background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 40%, var(--gold-light) 60%, var(--gold) 80%, var(--gold-dark) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -423,11 +447,12 @@ body {
 }
 .hero-sub {
   font-size: 17px;
-  font-weight: 400;
-  line-height: 1.7;
+  font-weight: 300;
+  line-height: 1.6;
   color: var(--text-dim);
   max-width: 620px;
   margin: 0 auto 44px;
+  letter-spacing: -0.005em;
 }
 .hero-actions {
   display: flex;
@@ -438,7 +463,7 @@ body {
   margin-bottom: 80px;
 }
 .btn-primary {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -458,7 +483,7 @@ body {
   transform: translateY(-2px);
 }
 .btn-secondary {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -474,7 +499,7 @@ body {
 }
 .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
 .hero-scroll-hint {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -552,32 +577,39 @@ body {
   box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.05) inset;
 }
 .card-number {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 10px;
-  letter-spacing: 0.2em;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 10px;
-  opacity: 0.7;
+  opacity: 0.85;
 }
 .card-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 18px;
+  font-family: var(--font-display);
+  font-size: 19px;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 8px;
   line-height: 1.2;
+  letter-spacing: -0.015em;
 }
 .card-desc {
   font-size: 13px;
+  font-weight: 300;
   line-height: 1.6;
   color: var(--text-dim);
   margin-bottom: 14px;
+  letter-spacing: -0.003em;
 }
 .card-stat {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
+  font-family: var(--font-mark);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
   color: var(--gold);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.16em;
   padding-top: 12px;
   border-top: 1px solid rgba(201,168,76,0.15);
   opacity: 0.85;
@@ -601,25 +633,30 @@ section { position: relative; z-index: 1; }
 .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 .section-pad { padding-top: 120px; padding-bottom: 120px; }
 .eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.3em;
+  font-family: var(--font-mark);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--gold);
-  opacity: 0.8;
+  opacity: 0.85;
   margin-bottom: 20px;
   display: block;
 }
 .section-title {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(32px, 4vw, 56px);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.022em;
   color: var(--text);
   margin-bottom: 20px;
 }
 .gold-gradient-text {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.005em;
   background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 40%, var(--gold-light) 60%, var(--gold) 80%, var(--gold-dark) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -627,10 +664,12 @@ section { position: relative; z-index: 1; }
 }
 .section-sub {
   font-size: 17px;
-  line-height: 1.7;
+  font-weight: 300;
+  line-height: 1.65;
   color: var(--text-dim);
   max-width: 580px;
   margin-bottom: 60px;
+  letter-spacing: -0.005em;
 }
 .gold-rule {
   width: 48px;
@@ -658,9 +697,9 @@ section { position: relative; z-index: 1; }
 }
 .stat-item:last-child { border-right: none; }
 .stat-num {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(32px, 4vw, 52px);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.03em;
   background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
   -webkit-background-clip: text;
@@ -671,10 +710,12 @@ section { position: relative; z-index: 1; }
   line-height: 1;
 }
 .stat-label {
-  font-family: 'Archivo', sans-serif;
-  font-size: 13px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
   color: var(--text-muted);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.16em;
 }
 @media (max-width: 640px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
@@ -692,19 +733,23 @@ section { position: relative; z-index: 1; }
 }
 .about-body {
   font-size: 16px;
-  line-height: 1.85;
+  font-weight: 300;
+  line-height: 1.75;
   color: var(--text-dim);
+  letter-spacing: -0.005em;
 }
 .about-body p + p { margin-top: 20px; }
 .about-highlight {
-  font-size: 22px;
-  font-weight: 300;
-  line-height: 1.6;
+  font-family: var(--font-accent);
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 400;
+  line-height: 1.4;
   color: var(--text);
   font-style: italic;
   border-left: 2px solid var(--gold);
   padding-left: 24px;
   margin: 40px 0;
+  letter-spacing: -0.01em;
 }
 .about-visual {
   position: relative;
@@ -838,24 +883,27 @@ section { position: relative; z-index: 1; }
 }
 
 .svc-num {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 10px;
-  letter-spacing: 0.2em;
+  font-weight: 500;
+  letter-spacing: 0.22em;
   color: var(--gold);
-  opacity: 0.5;
+  opacity: 0.6;
   padding-top: 4px;
 }
 
 .svc-name {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: 17px;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 10px;
-  line-height: 1.25;
+  line-height: 1.22;
+  letter-spacing: -0.012em;
 }
 .svc-card-featured .svc-name {
-  font-size: 21px;
+  font-size: 22px;
+  letter-spacing: -0.02em;
 }
 
 .svc-rule {
@@ -869,11 +917,13 @@ section { position: relative; z-index: 1; }
 
 .svc-desc {
   font-size: 13.5px;
-  line-height: 1.7;
+  font-weight: 300;
+  line-height: 1.65;
   color: var(--text-muted);
+  letter-spacing: -0.003em;
   flex: 1;
 }
-.svc-card-featured .svc-desc { font-size: 14.5px; }
+.svc-card-featured .svc-desc { font-size: 14.5px; line-height: 1.6; }
 
 /* Decorative SVG bg for featured cards */
 .svc-deco {
@@ -890,9 +940,10 @@ section { position: relative; z-index: 1; }
   align-items: center;
   gap: 6px;
   margin-top: 20px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 10px;
-  letter-spacing: 0.15em;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
   opacity: 0;
@@ -941,10 +992,10 @@ section { position: relative; z-index: 1; }
 .division-card:hover { border-color: rgba(201,168,76,0.3); transform: translateY(-3px); }
 .division-card:hover::before { opacity: 1; }
 .division-tag {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   color: var(--gold);
   background: rgba(201,168,76,0.08);
   border: 1px solid rgba(201,168,76,0.2);
@@ -954,13 +1005,20 @@ section { position: relative; z-index: 1; }
   margin-bottom: 16px;
 }
 .division-name {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: 19px;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 10px;
+  letter-spacing: -0.012em;
 }
-.division-desc { font-size: 14px; line-height: 1.65; color: var(--text-muted); }
+.division-desc {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-muted);
+  letter-spacing: -0.003em;
+}
 @media (max-width: 900px) { .divisions-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .divisions-grid { grid-template-columns: 1fr; } }
 
@@ -990,27 +1048,37 @@ section { position: relative; z-index: 1; }
   opacity: 0.4;
 }
 .case-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 10px;
-  letter-spacing: 0.25em;
+  font-weight: 500;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 16px;
-  opacity: 0.7;
+  opacity: 0.85;
 }
 .case-name {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: 22px;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 14px;
+  letter-spacing: -0.018em;
 }
-.case-body { font-size: 15px; line-height: 1.7; color: var(--text-dim); }
+.case-body {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--text-dim);
+  letter-spacing: -0.003em;
+}
 .case-metric {
   display: inline-block;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1022,8 +1090,9 @@ section { position: relative; z-index: 1; }
   padding-top: 40px;
 }
 .partners-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 10px;
+  font-weight: 500;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -1035,7 +1104,7 @@ section { position: relative; z-index: 1; }
   gap: 12px;
 }
 .partner-name {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: 13px;
   font-weight: 500;
   color: var(--text-muted);
@@ -1060,36 +1129,45 @@ section { position: relative; z-index: 1; }
   align-items: center;
 }
 .jason-signature {
-  font-family: 'Mrs Saint Delafield', cursive;
-  font-size: clamp(48px, 6vw, 76px);
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(56px, 7vw, 88px);
+  letter-spacing: -0.02em;
   background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 40%, var(--gold-light) 60%, var(--gold-mid) 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  line-height: 1.1;
-  margin-bottom: 4px;
-  filter: drop-shadow(0 0 20px rgba(201,168,76,0.2));
+  line-height: 1;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 0 20px rgba(201,168,76,0.18));
 }
 .jason-title {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 11px;
-  letter-spacing: 0.2em;
+  font-weight: 500;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--gold);
-  opacity: 0.7;
+  opacity: 0.85;
   margin-bottom: 32px;
 }
 .jason-body {
   font-size: 16px;
-  line-height: 1.85;
+  font-weight: 300;
+  line-height: 1.75;
   color: var(--text-dim);
+  letter-spacing: -0.005em;
 }
 .jason-body p + p { margin-top: 20px; }
 .jason-tagline {
-  font-family: 'Mrs Saint Delafield', cursive;
-  font-size: 28px;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(28px, 3vw, 36px);
+  letter-spacing: -0.01em;
   color: var(--gold);
-  opacity: 0.7;
+  opacity: 0.85;
   margin-top: 32px;
 }
 .jason-visual {
@@ -1147,14 +1225,18 @@ section { position: relative; z-index: 1; }
 .apply-section .section-title { margin-bottom: 20px; }
 .apply-body {
   font-size: 17px;
-  line-height: 1.7;
+  font-weight: 300;
+  line-height: 1.65;
   color: var(--text-dim);
   margin-bottom: 40px;
+  letter-spacing: -0.005em;
 }
 .apply-micro {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 11px;
-  letter-spacing: 0.15em;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--text-muted);
   margin-top: 16px;
 }
@@ -1182,37 +1264,44 @@ section { position: relative; z-index: 1; }
   scroll-snap-align: start;
 }
 .testimonial-quote {
-  font-size: 15px;
-  line-height: 1.75;
+  font-family: var(--font-accent);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.55;
   color: var(--text-dim);
   margin-bottom: 28px;
   font-style: italic;
+  letter-spacing: -0.005em;
   position: relative;
 }
 .testimonial-quote::before {
   content: '\201C';
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 60px;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 64px;
   line-height: 1;
   color: var(--gold);
-  opacity: 0.15;
+  opacity: 0.18;
   position: absolute;
-  top: -16px;
+  top: -18px;
   left: -8px;
 }
 .testimonial-author {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: 15px;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 4px;
+  letter-spacing: -0.005em;
 }
 .testimonial-company {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 11px;
-  letter-spacing: 0.1em;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: var(--gold);
-  opacity: 0.65;
+  opacity: 0.7;
 }
 .testimonial-stars {
   display: flex;
@@ -1240,25 +1329,29 @@ footer {
   margin-bottom: 36px;
 }
 .footer-brand-name {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-display);
   font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text);
   margin-top: 14px;
   margin-bottom: 10px;
 }
 .footer-tagline {
-  font-family: 'Mrs Saint Delafield', cursive;
-  font-size: 22px;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 26px;
+  letter-spacing: -0.01em;
   color: var(--gold);
-  opacity: 0.6;
+  opacity: 0.75;
 }
 .footer-col-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 10px;
-  letter-spacing: 0.25em;
+  font-weight: 500;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 20px;
@@ -1349,7 +1442,7 @@ footer {
   border: 1px solid rgba(201,168,76,0.2);
   border-radius: 10px;
   padding: 14px 18px;
-  font-family: 'Archivo', sans-serif;
+  font-family: var(--font-body);
   font-size: 15px;
   color: var(--text);
   outline: none;
@@ -1384,9 +1477,10 @@ footer {
   box-shadow: 0 0 0 3px rgba(201,168,76,0.06);
 }
 .apply-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-mark);
   font-size: 10px;
-  letter-spacing: 0.2em;
+  font-weight: 500;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 8px;

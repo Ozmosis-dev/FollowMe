@@ -46,7 +46,7 @@ export default function Footer() {
               className="footer-contact-item"
               style={{
                 marginTop: '12px',
-                fontFamily: "'JetBrains Mono', monospace",
+                fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                 fontSize: '11px',
                 letterSpacing: '0.1em',
                 color: 'var(--gold)',
