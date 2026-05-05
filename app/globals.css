@@ -61,10 +61,10 @@
   --radius: 20px;
   --radius-sm: 12px;
 
-  --font-display: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-body: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-mark: var(--font-jakarta), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-accent: var(--font-instrument-serif), 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-display: var(--font-jakarta);
+  --font-body: var(--font-jakarta);
+  --font-mark: var(--font-jakarta);
+  --font-accent: var(--font-instrument-serif);
 
   /* shadcn compat */
   --background: #060606;

@@ -46,11 +46,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${plusJakartaSans.variable} ${instrumentSerif.variable}`}
-        style={{ background: "#060606", color: "#F5F0E8" }}
-      >
+    <html lang="en" className={`${plusJakartaSans.variable} ${instrumentSerif.variable}`}>
+      <body style={{ background: "#060606", color: "#F5F0E8" }}>
         {children}
       </body>
     </html>
