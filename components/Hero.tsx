@@ -52,6 +52,11 @@ export default function Hero({ onApplyClick }: HeroProps) {
           })
         } else if (node.nodeType === Node.ELEMENT_NODE) {
           const elem = node as HTMLElement
+          // Preserve <br> elements — wrapping them in inline-block kills the line break
+          if (elem.tagName === 'BR') {
+            el.appendChild(document.createElement('br'))
+            return
+          }
           // Wrap the whole child element in an overflow container
           const outer = document.createElement('span')
           outer.style.display = 'inline-block'
@@ -134,8 +139,8 @@ export default function Hero({ onApplyClick }: HeroProps) {
         Elite Business Strategist &middot; Industry Disruptor &middot; 30+ Years
       </p>
       <h1 className="hero-headline" ref={headlineRef}>
-        We don&rsquo;t consult.<br />
-        We <span className="gold-text">transform</span> industries.
+        We Don&rsquo;t Consult.<br />
+        <span className="gold-text">We Transform</span> Industries.
       </h1>
       <p className="hero-sub" ref={subRef}>
         FollowMe Global Business Solutions is a multi-divisional strategic consultancy that has
