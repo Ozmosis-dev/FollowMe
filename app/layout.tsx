@@ -1,33 +1,20 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Archivo, JetBrains_Mono, Mrs_Saint_Delafield } from "next/font/google";
+import { Plus_Jakarta_Sans, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-space-grotesk",
-  display: "swap",
-});
-
-const archivo = Archivo({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
   style: ["normal", "italic"],
-  variable: "--font-archivo",
+  variable: "--font-jakarta",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-jetbrains-mono",
-  display: "swap",
-});
-
-const mrsSaintDelafield = Mrs_Saint_Delafield({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: ["400"],
-  variable: "--font-mrs-saint-delafield",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
   display: "swap",
 });
 
@@ -46,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} ${archivo.variable} ${jetbrainsMono.variable} ${mrsSaintDelafield.variable}`}
+        className={`${plusJakartaSans.variable} ${instrumentSerif.variable}`}
         style={{ background: "#060606", color: "#F5F0E8" }}
       >
         {children}

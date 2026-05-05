@@ -159,7 +159,7 @@ export default function ApplyModal({ isOpen, onClose }: ApplyModalProps) {
                 <div style={{ marginBottom: 36 }}>
                   <span
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
+                      fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                       fontSize: 10,
                       letterSpacing: '0.3em',
                       textTransform: 'uppercase',
@@ -173,7 +173,7 @@ export default function ApplyModal({ isOpen, onClose }: ApplyModalProps) {
                   </span>
                   <h2
                     style={{
-                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                       fontSize: 'clamp(24px, 3vw, 32px)',
                       fontWeight: 700,
                       color: 'var(--text)',
@@ -307,7 +307,7 @@ export default function ApplyModal({ isOpen, onClose }: ApplyModalProps) {
                       border: 'none',
                       borderRadius: 60,
                       color: '#000',
-                      fontFamily: "'Space Grotesk', sans-serif",
+                      fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                       fontSize: 14,
                       fontWeight: 700,
                       letterSpacing: '0.08em',
@@ -388,7 +388,7 @@ function SuccessState({ onClose }: { onClose: () => void }) {
       </div>
       <span
         style={{
-          fontFamily: "'JetBrains Mono', monospace",
+          fontFamily: "var(--font-jakarta), system-ui, sans-serif",
           fontSize: 10,
           letterSpacing: '0.3em',
           textTransform: 'uppercase',
@@ -402,7 +402,7 @@ function SuccessState({ onClose }: { onClose: () => void }) {
       </span>
       <h2
         style={{
-          fontFamily: "'Space Grotesk', sans-serif",
+          fontFamily: "var(--font-jakarta), system-ui, sans-serif",
           fontSize: 28,
           fontWeight: 700,
           color: 'var(--text)',
@@ -433,7 +433,7 @@ function SuccessState({ onClose }: { onClose: () => void }) {
           border: '1px solid rgba(201,168,76,0.4)',
           borderRadius: 60,
           color: 'var(--gold)',
-          fontFamily: "'Space Grotesk', sans-serif",
+          fontFamily: "var(--font-jakarta), system-ui, sans-serif",
           fontSize: 13,
           fontWeight: 600,
           letterSpacing: '0.08em',
