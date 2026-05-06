@@ -2,20 +2,10 @@
 
 import { useEffect, useRef } from 'react'
 
-const PARTNERS = [
-  'CBRE',
-  'Regions Bank',
-  'PowerTeam International',
-  'Paul Davis Restoration',
-  'Kraft General Foods',
-  'Pillsbury',
-  'Walmart',
-  'Sysco Foods',
-  'Kroger',
-  'Popeyes',
-  'Darden Restaurants',
-  'Yum! Brands',
-]
+const LOGOS = Array.from({ length: 12 }, (_, i) => ({
+  src: `/logos/Artboard ${i + 1}.png`,
+  alt: `Client logo ${i + 1}`,
+}))
 
 export default function Results() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -77,10 +67,25 @@ export default function Results() {
         </div>
         <div className="partners-bar reveal">
           <div className="partners-label">Notable Clients &amp; Partners</div>
-          <div className="partners-list">
-            {PARTNERS.map((name, i) => (
-              <span className="partner-name" key={i}>{name}</span>
-            ))}
+          <div className="logo-marquee-wrapper">
+            <div className="logo-marquee-track">
+              {[...LOGOS, ...LOGOS].map((logo, i) => (
+                <div
+                  className="logo-item"
+                  key={i}
+                  aria-hidden={i >= LOGOS.length ? 'true' : undefined}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={logo.src}
+                    alt={i < LOGOS.length ? logo.alt : ''}
+                    className="logo-img"
+                    loading="lazy"
+                    draggable={false}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

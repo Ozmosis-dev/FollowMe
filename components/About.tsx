@@ -42,13 +42,13 @@ export default function About() {
       highlight.innerHTML = words
         .map(
           (w) =>
-            `<span style="display:inline-block;overflow:hidden;vertical-align:bottom;margin-right:0.25em">` +
+            `<span style="display:inline-block;overflow:hidden;vertical-align:bottom">` +
             `<span style="display:inline-block">${w}</span></span>`
         )
-        .join('')
+        .join(' ')
 
       const innerSpans = highlight.querySelectorAll<HTMLElement>('span > span')
-      gsap.set(innerSpans, { y: '110%' })
+      gsap.set(innerSpans, { y: '105%' })
 
       const t = ScrollTrigger.create({
         trigger: highlight,
